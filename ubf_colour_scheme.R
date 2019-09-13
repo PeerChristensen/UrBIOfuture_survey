@@ -1,9 +1,14 @@
 # colour scheme for UrBIOFuture survey report
 
 ubf_colours <- c(
-  lightgreen      = "#98C455",
-  darkgreen       = "#5D7531",
-  black           = "black")
+  lightgreen       = "#D3FF75",
+  green            = "#98C455",
+  darkgreen        = "#5D7531",
+  black            = "#303F1B",
+  lightgreen_faded = "#E6FFDC",
+  green_faded      = "#CADDA9",
+  darkgreen_faded  = "#ADBA98",
+  black_faded      = "#2D3222")
 
 ubf_cols <- function(...) {
   cols <- c(...)
@@ -14,11 +19,12 @@ ubf_cols <- function(...) {
   ubf_colours[cols]
 }
 
-ubf_palette <- list(
-  main  = ubf_cols("lightgreen","darkgreen", "black"))
+ubf_palettes <- list(
+  main  = ubf_cols("lightgreen","green","darkgreen", "black"),
+  faded = ubf_cols("lightgreen_faded","green_faded","darkgreen_faded","black_faded"))
 
 ubf_pal <- function(palette = "main", reverse = FALSE, ...) {
-  pal <- ubf_palette[[palette]]
+  pal <- ubf_palettes[[palette]]
   
   if (reverse) pal <- rev(pal)
   

@@ -38,7 +38,7 @@ df %>%
         legend.title = element_blank(),
         legend.key.size = unit(1.5, "cm"),
         legend.text = element_text(size=24),
-        strip.text = element_text(size=28,margin=margin(b=1,unit="cm")))
+        strip.text = element_text(size=28,margin=margin(b=1,unit="cm"))) 
 
 # 4.1.5.	Gender distribution - "q_102_1" "q_102_2 q_102_3"
 df %>% 

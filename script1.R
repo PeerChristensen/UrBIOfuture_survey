@@ -2,8 +2,19 @@
 library(tidyverse)
 library(hrbrthemes)
 
-df <- read_csv("data.csv")
+# df <- read_csv("data2.csv") %>%
+#   mutate(company_type = NA,
+#          data_quality = NA)
+# 
+# df$n_complete <- rowSums(!is.na(df))-3
+# 
+# df <- df %>%
+#   select(company_type,data_quality,n_complete,everything())
+# 
+# write_csv(df, "ubf_data_complete.csv")
 
+df <- read_csv("ubf_data_complete.csv"
+               )
 #responses
 df %>%
   map_df(~sum(!is.na(.))) %>%
@@ -228,7 +239,7 @@ df %>%
   mutate(Rank = recode(key, q_204_1 = "1",q_204_2 = "2",
                        q_204_3 = "3",q_204_4 = "4",q_204_5 = "5",
                        q_204_6 = "6",q_204_7 = "7",q_204_8 = "8")) %>%
-  ggplot(aes(Rank,percent)) +
+  ggplot(aes(Rank,Percent)) +
   geom_col() +
   facet_wrap(~value)
 

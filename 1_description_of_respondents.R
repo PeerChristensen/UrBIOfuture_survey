@@ -5,14 +5,14 @@ library(hrbrthemes)
 library(countrycode)
 library(scales)
 
-df <- read_csv("ubf_data_complete.csv") 
+df <- read_csv2("Survey_consolidated_filter_20092019.csv") 
 
 # theme
 # ----
 theme_ubf <- function () { 
   theme_ipsum_rc(plot_title_size = 30) %+replace% 
     theme(
-      plot.title = = element_blank(),
+      plot.title = element_blank(),
       axis.title.x = element_blank(),
       axis.title.y = element_blank(),
       plot.margin = margin(1,1, 1,1, "cm"),

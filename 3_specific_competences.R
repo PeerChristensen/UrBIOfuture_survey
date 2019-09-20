@@ -1,5 +1,34 @@
 # Specific competences of bio-based industry sector	13
 
+library(tidyverse)
+library(hrbrthemes)
+library(scales)
+
+df <- read_csv2("Survey_consolidated_filter_20092019.csv") %>%
+  mutate_if(is.character, 
+            ~replace(., grepl("Bachelor/engineer", .), "BA/engineer"))
+
+# theme
+# ----
+theme_ubf_2 <- function () { 
+  theme_ipsum_rc(plot_title_size = 30) %+replace% 
+    theme(
+      plot.title = element_blank(),
+      axis.title.x = element_blank(),
+      axis.title.y = element_blank(),
+      plot.margin = margin(1,1, 1,1, "cm"),
+      axis.text.y = element_text(size = 18,
+                                 margin = margin(r = .3, unit = "cm")),
+      axis.text.x = element_text(size = 18),
+      panel.grid.major.x = element_blank(),
+      panel.grid.minor.x = element_blank(),
+      strip.text = element_text(size=18,hjust=0,margin = margin(b=.3,unit="cm"))
+    )
+}
+
+theme_set(theme_ubf_2())
+# ----
+
 #########################################################################
 # 4.3.24.	Specialists in bio-based sector business/market development	13
 

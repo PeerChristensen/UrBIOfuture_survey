@@ -4,7 +4,9 @@ library(tidyverse)
 library(hrbrthemes)
 library(scales)
 
-df <- read_csv("ubf_data_complete.csv") 
+df <- read_csv2("Survey_consolidated_filter_20092019.csv") %>%
+  mutate_if(is.character, 
+            ~replace(., grepl("Bachelor/engineer", .), "BA/engineer"))
 
 # theme
 # ----

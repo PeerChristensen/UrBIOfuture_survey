@@ -12,6 +12,7 @@ df <- read_csv("ubf_data_complete.csv")
 theme_ubf <- function () { 
   theme_ipsum_rc(plot_title_size = 30) %+replace% 
     theme(
+      plot.title = = element_blank(),
       axis.title.x = element_blank(),
       axis.title.y = element_blank(),
       plot.margin = margin(1,1, 1,1, "cm"),
@@ -32,9 +33,8 @@ df %>%
          q_101 = fct_relevel(factor(q_101),"> 60", after = 6)) %>%
   ggplot(aes(q_101,pct)) +
   geom_col(fill="#98C455",color=NA) +
-  scale_y_continuous(labels=percent_format(scale=1)) +
-  ggtitle("Age distribution")
-ggsave("q_101.png")
+  scale_y_continuous(labels=percent_format(scale=1)) 
+ggsave("q_101.png", width=7,height=6)
 
 # ----
 # 4.1.5.	Gender distribution	"q_102"
@@ -48,9 +48,8 @@ df %>%
          pct   = n/sum(n) * 100) %>%
   ggplot(aes(Gender,pct)) +
   geom_col(fill="#98C455",color=NA) +
-  scale_y_continuous(labels=percent_format(scale=1)) +
-  ggtitle("Gender Distribution")
-ggsave("q_102.png")
+  scale_y_continuous(labels=percent_format(scale=1)) 
+ggsave("q_102.png",width=7,height=6)
 
 # ----
 # 4.1.6.	Educational level	q_103
@@ -64,10 +63,10 @@ df %>%
   ggplot(aes(q_103,pct)) +
   geom_col(fill="#98C455",color=NA) +
   scale_y_continuous(labels=percent_format(scale=1)) +
-  ggtitle("Educational level") +
+#  ggtitle("Educational level") +
   theme(axis.text.x=element_text(angle=45,vjust=1,hjust=1))
 
-ggsave("q_103.png")
+ggsave("q_103.png",width=7,height=6)
 # ----
 # 4.1.7.	Experiences in the bio-based industries q_104
 # ----
@@ -79,7 +78,7 @@ df %>%
   ggplot(aes(q_104,pct)) +
   geom_col(fill="#98C455",color=NA) +
   scale_y_continuous(labels=percent_format(scale=1)) +
-  ggtitle("Experience in the bio-based\nindustries") +
+  #ggtitle("Experience in the bio-based\nindustries") +
   theme(axis.text.x=element_text(angle=45,vjust=1,hjust=1))
 ggsave("q_104.png",height=7)
 
@@ -102,7 +101,7 @@ df %>%
         panel.grid.major.y = element_blank(),
         panel.grid.major.x = element_line()) +
   coord_flip()
-ggsave("q_105.png",width=10)
+ggsave("q_105.png",width=7,height=6)
 
 # ----
 # 4.1.9.	Country of company headquarters distribution "q_109"
@@ -113,7 +112,7 @@ df %>%
   mutate(pct = n/sum(n)*100) %>%
   ggplot(aes(reorder(q_109,pct),pct)) +
   geom_col(fill="#98C455",color=NA) +
-  labs(title="Country of company headquarters") +
+  #labs(title="Country of company headquarters") +
   theme(axis.text.y = element_text(hjust=1),
         panel.grid.major.y = element_blank(),
         panel.grid.major.x = element_line()) +
@@ -129,7 +128,7 @@ df %>%
   mutate(pct = n/sum(n)*100) %>%
   ggplot(aes(reorder(q_110,pct),pct)) +
   geom_col(fill="#98C455",color=NA) +
-  labs(title="Country of workplace") +
+  #labs(title="Country of workplace") +
   theme(axis.text.y = element_text(hjust=1),
         panel.grid.major.y = element_blank(),
         panel.grid.major.x = element_line()) +
@@ -176,7 +175,7 @@ df %>%
   mutate(pct = n/sum(n)*100) %>%
   ggplot(aes(reorder(q_111,pct),pct)) +
   geom_col(fill="#98C455",color=NA) +
-  labs(title="Company sector activities") +
+  #labs(title="Company sector activities") +
   theme(axis.text.y = element_text(hjust=1),
         panel.grid.major.y = element_blank(),
         panel.grid.major.x = element_line()) +
@@ -197,10 +196,10 @@ df %>%
   mutate(q_112 = fct_relevel(factor(q_112),"> 250", after = Inf)) %>%
   ggplot(aes(q_112,pct)) +
   geom_col(fill="#98C455",color=NA) +
-  labs(title="Company size (employees)") +
+  #labs(title="Company size (employees)") +
   theme(axis.text.x = element_text(angle=45,vjust=1,hjust=1),
         panel.grid.major.x = element_blank(),
         panel.grid.major.y = element_line()) +
   scale_y_continuous(labels=percent_format(scale=1))
-ggsave("q_112.png",height=7)
+ggsave("q_112.png",height=6,width=7)
 # ----

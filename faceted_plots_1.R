@@ -19,7 +19,7 @@ q201 %>%
   ggtitle("Management: Ranking") +
   labs(y="Per cent",
        x="") +
-  geom_col(fill="#98C455",color="#98C455") +
+  geom_col(fill="#98C455",color=NA) +
   theme_ipsum_rc() +
   facet_wrap(~value,nrow=2) +
   theme(plot.margin = margin(1,1, 1,1, "cm"),
@@ -63,7 +63,7 @@ q401 <-  df %>%
 
 q401 %>% 
   ggplot(aes(value_num, percent)) +
-  geom_col(fill="#98C455",color="#98C455") +
+  geom_col(fill="#98C455",color=NA) +
   labs(title = "Management: Educational levels",
        x = "",
        y = "Per cent") +
@@ -79,6 +79,6 @@ q401 %>%
         axis.text.y  = element_text(size = 18,
                                     margin = margin(r = .3, unit = "cm")),
         axis.text.x  = element_text(size = 18,angle=45,hjust=1),
-      #  axis.title.x = element_text(size = 24,margin=margin(t=1,unit="cm")),
+        axis.title.x = element_text(size = 24,margin=margin(t=1,unit="cm")),
         axis.title.y = element_text(size = 24,margin=margin(r=1,unit="cm"))) 
 

@@ -13,8 +13,8 @@ library(hrbrthemes)
 # 
 # write_csv(df, "ubf_data_complete.csv")
 
-df <- read_csv("ubf_data_complete.csv"
-               )
+df <- read_csv("ubf_data_complete.csv")
+
 #responses
 df %>%
   map_df(~sum(!is.na(.))) %>%

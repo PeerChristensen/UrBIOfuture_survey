@@ -105,7 +105,7 @@ df %>%
         panel.grid.major.y = element_blank(),
         panel.grid.major.x = element_line()) +
   coord_flip()
-ggsave("q_105.png",width=7,height=6)
+ggsave("q_105.png",width=10,height=6)
 
 # ----
 # 4.1.9.	Country of company headquarters distribution "q_109"

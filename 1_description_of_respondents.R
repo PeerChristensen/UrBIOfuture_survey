@@ -5,7 +5,11 @@ library(hrbrthemes)
 library(countrycode)
 library(scales)
 
-df <- read_csv2("Survey_consolidated_filter_20092019.csv") 
+df <- read_csv2("Survey_consolidated_filter_20092019.csv") %>%
+  mutate_if(is.character, 
+            ~replace(., grepl("Bachelor/engineer", .), "BA/engineer")) %>%
+  filter(n_complete>102)
+
 
 # theme
 # ----

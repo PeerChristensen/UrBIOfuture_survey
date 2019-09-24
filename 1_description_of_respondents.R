@@ -10,7 +10,8 @@ library(scales)
 #             ~replace(., grepl("Bachelor/engineer", .), "BA/engineer")) %>%
 #   filter(n_complete>102)
 
-df <- read_csv2("Survey_consolidated_filter_23092019.csv")
+df <- read_csv2("Survey_consolidated_filter_23092019.csv") %>%
+  filter(n_complete > 90)
 
 # theme
 # ----
@@ -39,7 +40,7 @@ df %>%
   ggplot(aes(q_101,pct)) +
   geom_col(fill="#98C455",color=NA) +
   scale_y_continuous(labels=percent_format(scale=1)) 
-ggsave("q_101.png", width=7,height=6)
+ggsave("images/q_101.png", width=7,height=6)
 
 # ----
 # 4.1.5.	Gender distribution	"q_102"
@@ -54,7 +55,7 @@ df %>%
   ggplot(aes(Gender,pct)) +
   geom_col(fill="#98C455",color=NA) +
   scale_y_continuous(labels=percent_format(scale=1)) 
-ggsave("q_102.png",width=7,height=6)
+ggsave("images/q_102.png",width=7,height=6)
 
 # ----
 # 4.1.6.	Educational level	q_103
@@ -71,7 +72,7 @@ df %>%
 #  ggtitle("Educational level") +
   theme(axis.text.x=element_text(angle=45,vjust=1,hjust=1))
 
-ggsave("q_103.png",width=7,height=6)
+ggsave("images/q_103.png",width=7,height=6)
 # ----
 # 4.1.7.	Experiences in the bio-based industries q_104
 # ----
@@ -85,7 +86,7 @@ df %>%
   scale_y_continuous(labels=percent_format(scale=1)) +
   #ggtitle("Experience in the bio-based\nindustries") +
   theme(axis.text.x=element_text(angle=45,vjust=1,hjust=1))
-ggsave("q_104.png",height=7)
+ggsave("images/q_104.png",height=7)
 
 # ----
 # 4.1.8.	Job positions q_105
@@ -106,7 +107,7 @@ df %>%
         panel.grid.major.y = element_blank(),
         panel.grid.major.x = element_line()) +
   coord_flip()
-ggsave("q_105.png",width=10,height=6)
+ggsave("images/q_105.png",width=10,height=6)
 
 # ----
 # 4.1.9.	Country of company headquarters distribution "q_109"
@@ -123,7 +124,7 @@ df %>%
         panel.grid.major.x = element_line()) +
   scale_y_continuous(labels=percent_format(scale=1)) +
   coord_flip() 
-ggsave("q_109.png",height=9, width=10)
+ggsave("images/q_109.png",height=9, width=10)
 # ----
 # 4.1.10.	Country of workplace "q_110"
 # ----
@@ -139,7 +140,7 @@ df %>%
         panel.grid.major.x = element_line()) +
   scale_y_continuous(labels=percent_format(scale=1)) +
   coord_flip() 
-ggsave("q_110.png",height=9, width=10)
+ggsave("images/q_110.png",height=9, width=10)
 
 # # region
 # 
@@ -186,7 +187,7 @@ df %>%
         panel.grid.major.x = element_line()) +
   scale_y_continuous(labels=percent_format(scale=1)) +
   coord_flip() 
-ggsave("q_111.png",height=9, width=10)
+ggsave("images/q_111.png",height=9, width=10)
 # ----
 # 4.1.12.	Company sizes q_112
 # ----
@@ -206,5 +207,5 @@ df %>%
         panel.grid.major.x = element_blank(),
         panel.grid.major.y = element_line()) +
   scale_y_continuous(labels=percent_format(scale=1))
-ggsave("q_112.png",height=6,width=7)
+ggsave("images/q_112.png",height=6,width=7)
 # ----

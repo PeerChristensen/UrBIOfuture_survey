@@ -9,7 +9,8 @@ library(scales)
 #             ~replace(., grepl("Bachelor/engineer", .), "BA/engineer")) %>%
 #   filter(n_complete>102)
 
-df <- read_csv2("Survey_consolidated_filter_23092019.csv")
+df <- read_csv2("Survey_consolidated_filter_23092019.csv") %>%
+  filter(n_complete > 90)
 
 # theme
 # ----
@@ -63,7 +64,7 @@ q201 %>%
   theme_ubf_2() +
   scale_y_continuous(labels=percent_format(scale=1))
   
-ggsave("q_201.png",width = 15,height=7.5)
+ggsave("images/q_201.png",width = 15,height=7.5)
 #----
 #q_401
 #----
@@ -104,7 +105,7 @@ q401 %>%
   theme_ubf_2() +
   theme(axis.text.x = element_text(angle=45,hjust=1,vjust=1)) +
   scale_y_continuous(labels=percent_format(scale=1))
-ggsave("q_401.png",width = 15,height=7.5)
+ggsave("images/q_401.png",width = 15,height=7.5)
 
 #----
 ###########################
@@ -145,7 +146,7 @@ q202 %>%
   facet_wrap(~value,nrow=2) +
   scale_y_continuous(labels=percent_format(scale=1)) +
   theme_ubf_2()
-ggsave("q_202.png",width = 15,height=7.5)
+ggsave("images/q_202.png",width = 15,height=7.5)
 # 4.2.14.	Data Management
 #----
 #q_402
@@ -185,7 +186,7 @@ q402 %>%
   theme_ubf_2() +
   theme(axis.text.x = element_text(angle=45,hjust=1,vjust=1)) +
   scale_y_continuous(labels=percent_format(scale=1))
-ggsave("q_402.png",width = 15,height=7.5)
+ggsave("images/q_402.png",width = 15,height=7.5)
 #----
 
 ###########################
@@ -217,7 +218,7 @@ q203 %>%
   theme_ubf_2() +
   scale_y_continuous(labels=percent_format(scale=1))
 
-ggsave("q_203.png",width = 15,height=7.5)
+ggsave("images/q_203.png",width = 15,height=7.5)
 #----
 #q_403
 # ----
@@ -257,7 +258,7 @@ q403 %>%
   theme_ubf_2() +
   theme(axis.text.x = element_text(angle=45,hjust=1,vjust=1)) +
   scale_y_continuous(labels=percent_format(scale=1))
-ggsave("q_403.png",width = 15,height=7.5)
+ggsave("images/q_403.png",width = 15,height=7.5)
 #----
 
 ###########################
@@ -291,7 +292,7 @@ q204 %>%
   theme_ubf_2() +
   scale_y_continuous(labels=percent_format(scale=1))
 
-ggsave("q_204.png",width = 15,height=7.5)
+ggsave("images/q_204.png",width = 15,height=7.5)
 #----
 #q_404
 # ----
@@ -332,7 +333,7 @@ q404 %>%
   theme_ubf_2() +
   theme(axis.text.x = element_text(angle=45,hjust=1,vjust=1)) +
   scale_y_continuous(labels=percent_format(scale=1))
-ggsave("q_404.png",width = 15,height=7.5)
+ggsave("images/q_404.png",width = 15,height=7.5)
 #----
 
 ###########################
@@ -368,7 +369,7 @@ q205 %>%
   facet_wrap(~value,nrow=2) +
   theme_ubf_2() +
   scale_y_continuous(labels=percent_format(scale=1))
-ggsave("q_205.png",width = 15,height=7.5)
+ggsave("images/q_205.png",width = 15,height=7.5)
 #----
 #q_405
 # ----
@@ -409,7 +410,7 @@ q405 %>%
   theme_ubf_2() +
   theme(axis.text.x = element_text(angle=45,hjust=1,vjust=1)) +
   scale_y_continuous(labels=percent_format(scale=1))
-ggsave("q_405.png",width = 15,height=7.5)
+ggsave("images/q_405.png",width = 15,height=7.5)
 #----
 
 ###########################
@@ -443,7 +444,7 @@ q206 %>%
   facet_wrap(~value,nrow=2) +
   theme_ubf_2() +
   scale_y_continuous(labels=percent_format(scale=1))
-ggsave("q_206.png",width = 15,height=7.5)
+ggsave("images/q_206.png",width = 15,height=7.5)
 #----
 #q_406
 # ----
@@ -484,7 +485,7 @@ q406 %>%
   theme_ubf_2() +
   theme(axis.text.x = element_text(angle=45,hjust=1,vjust=1)) +
   scale_y_continuous(labels=percent_format(scale=1))
-ggsave("q_406.png",width = 15,height=7.5)
+ggsave("images/q_406.png",width = 15,height=7.5)
 #----
 
 ###########################
@@ -515,7 +516,7 @@ q207 %>%
   facet_wrap(~value,nrow=2) +
   theme_ubf_2() +
   scale_y_continuous(labels=percent_format(scale=1))
-ggsave("q_207.png",width = 15,height=7.5)
+ggsave("images/q_207.png",width = 15,height=7.5)
 #----
 #q_407
 # ----
@@ -553,7 +554,7 @@ q407 %>%
   theme_ubf_2() +
   theme(axis.text.x = element_text(angle=45,hjust=1,vjust=1)) +
   scale_y_continuous(labels=percent_format(scale=1))
-ggsave("q_407.png",width = 15,height=7.5)
+ggsave("images/q_407.png",width = 15,height=7.5)
 #----
 
 ###########################
@@ -584,7 +585,7 @@ q208 %>%
   facet_wrap(~value,nrow=2) +
   theme_ubf_2() +
   scale_y_continuous(labels=percent_format(scale=1))
-ggsave("q_208.png",width = 15,height=7.5)
+ggsave("images/q_208.png",width = 15,height=7.5)
 #----
 #q_408
 # ----
@@ -625,7 +626,7 @@ q408 %>%
   theme_ubf_2() +
   theme(axis.text.x = element_text(angle=45,hjust=1,vjust=1)) +
   scale_y_continuous(labels=percent_format(scale=1))
-ggsave("q_408.png",width = 15,height=7.5)
+ggsave("images/q_408.png",width = 15,height=7.5)
 #----
 
 ###########################
@@ -658,7 +659,7 @@ q209 %>%
   facet_wrap(~value,nrow=2) +
   theme_ubf_2() +
   scale_y_continuous(labels=percent_format(scale=1))
-ggsave("q_209.png",width = 15,height=7.5)
+ggsave("images/q_209.png",width = 15,height=7.5)
 #----
 #q_409
 # ----
@@ -698,7 +699,7 @@ q409 %>%
   theme_ubf_2() +
   theme(axis.text.x = element_text(angle=45,hjust=1,vjust=1)) +
   scale_y_continuous(labels=percent_format(scale=1))
-ggsave("q_409.png",width = 15,height=7.5)
+ggsave("images/q_409.png",width = 15,height=7.5)
 #----
 
 ###########################
@@ -734,7 +735,7 @@ q210 %>%
   facet_wrap(~value,nrow=2) +
   theme_ubf_2() +
   scale_y_continuous(labels=percent_format(scale=1))
-ggsave("q_210.png",width = 15,height=7.5)
+ggsave("images/q_210.png",width = 15,height=7.5)
 #----
 #q_410
 # ----
@@ -774,7 +775,7 @@ q410 %>%
   theme_ubf_2() +
   theme(axis.text.x = element_text(angle=45,hjust=1,vjust=1)) +
   scale_y_continuous(labels=percent_format(scale=1))
-ggsave("q_410.png",width = 15,height=7.5)
+ggsave("images/q_410.png",width = 15,height=7.5)
 #----
 
 ###########################
@@ -809,7 +810,7 @@ q211 %>%
   facet_wrap(~value,nrow=2) +
   theme_ubf_2() +
   scale_y_continuous(labels=percent_format(scale=1))
-ggsave("q_211.png",width = 15,height=7.5)
+ggsave("images/q_211.png",width = 15,height=7.5)
 #----
 #q_411
 # ----
@@ -847,4 +848,4 @@ q411 %>%
   theme_ubf_2() +
   theme(axis.text.x = element_text(angle=45,hjust=1,vjust=1)) +
   scale_y_continuous(labels=percent_format(scale=1))
-ggsave("q_411.png",width = 15,height=7.5)
+ggsave("images/q_411.png",width = 15,height=7.5)

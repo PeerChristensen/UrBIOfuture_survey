@@ -9,7 +9,8 @@ library(scales)
 #             ~replace(., grepl("Bachelor/engineer", .), "BA/engineer")) %>%
 #   filter(n_complete>102)
 
-df <- read_csv2("Survey_consolidated_filter_23092019.csv")
+df <- read_csv2("Survey_consolidated_filter_23092019.csv") %>%
+  filter(n_complete > 90)
 
 # theme
 # ----
@@ -63,7 +64,7 @@ q301 %>%
   facet_wrap(~value,nrow=2) +
   theme_ubf_2() +
   scale_y_continuous(labels=percent_format(scale=1))
-ggsave("q_301.png",width = 15,height=7.5)
+ggsave("images/q_301.png",width = 15,height=7.5)
 #----
 #q_501
 # ----
@@ -101,7 +102,7 @@ q501 %>%
   theme_ubf_2() +
   theme(axis.text.x = element_text(angle=45,hjust=1,vjust=1)) +
   scale_y_continuous(labels=percent_format(scale=1))
-ggsave("q_501.png",width = 15,height=7.5)
+ggsave("images/q_501.png",width = 15,height=7.5)
 
 #----
 
@@ -138,7 +139,7 @@ q302 %>%
   facet_wrap(~value,nrow=2) +
   theme_ubf_2() +
   scale_y_continuous(labels=percent_format(scale=1))
-ggsave("q_302.png",width = 15,height=7.5)
+ggsave("images/q_302.png",width = 15,height=7.5)
 #----
 #q_502
 # ----
@@ -179,7 +180,7 @@ q502 %>%
   theme_ubf_2() +
   theme(axis.text.x = element_text(angle=45,hjust=1,vjust=1)) +
   scale_y_continuous(labels=percent_format(scale=1))
-ggsave("q_502.png",width = 15,height=7.5)
+ggsave("images/q_502.png",width = 15,height=7.5)
 
 #----
 #########################################################################
@@ -215,7 +216,7 @@ q303 %>%
   facet_wrap(~value,nrow=2) +
   theme_ubf_2() +
   scale_y_continuous(labels=percent_format(scale=1))
-ggsave("q_303.png",width = 15,height=7.5)
+ggsave("images/q_303.png",width = 15,height=7.5)
 #----
 #q_503
 # ----
@@ -256,7 +257,7 @@ q503 %>%
   theme_ubf_2() +
   theme(axis.text.x = element_text(angle=45,hjust=1,vjust=1)) +
   scale_y_continuous(labels=percent_format(scale=1))
-ggsave("q_503.png",width = 15,height=7.5)
+ggsave("images/q_503.png",width = 15,height=7.5)
 
 #----
 
@@ -295,7 +296,7 @@ q304 %>%
   facet_wrap(~value,nrow=2) +
   theme_ubf_2() +
   scale_y_continuous(labels=percent_format(scale=1))
-ggsave("q_304.png",width = 15,height=7.5)
+ggsave("images/q_304.png",width = 15,height=7.5)
 #----
 #q_504
 # ----
@@ -336,7 +337,7 @@ q504 %>%
   theme_ubf_2() +
   theme(axis.text.x = element_text(angle=45,hjust=1,vjust=1)) +
   scale_y_continuous(labels=percent_format(scale=1))
-ggsave("q_504.png",width = 15,height=7.5)
+ggsave("images/q_504.png",width = 15,height=7.5)
 
 #----
 
@@ -375,7 +376,7 @@ q305 %>%
   facet_wrap(~value,nrow=2) +
   theme_ubf_2() +
   scale_y_continuous(labels=percent_format(scale=1))
-ggsave("q_305.png",width = 15,height=7.5)
+ggsave("images/q_305.png",width = 15,height=7.5)
 #----
 #q_505
 # ----
@@ -416,6 +417,6 @@ q505 %>%
   theme_ubf_2() +
   theme(axis.text.x = element_text(angle=45,hjust=1,vjust=1)) +
   scale_y_continuous(labels=percent_format(scale=1))
-ggsave("q_505.png",width = 15,height=7.5)
+ggsave("images/q_505.png",width = 15,height=7.5)
 
 #----

@@ -4,13 +4,11 @@ library(tidyverse)
 library(hrbrthemes)
 library(scales)
 
-# df <- read_csv2("Survey_consolidated_filter_20092019.csv") %>%
-#   mutate_if(is.character, 
-#             ~replace(., grepl("Bachelor/engineer", .), "BA/engineer")) %>%
-#   filter(n_complete>102)
-
 df <- read_csv2("Survey_consolidated_filter_23092019.csv") %>%
-  filter(n_complete > 90)
+  mutate_if(is.character, 
+            ~replace(., grepl("Bachelor/engineer", .), "BA/engineer")) %>%
+  filter(n_complete > 90,
+         company_type == "i")
 
 # theme
 # ----
@@ -122,7 +120,8 @@ q302 <- df %>%
   ungroup() %>%
   filter(value != "Not selected") %>%
   mutate(Rank = recode(key, q_302_1 = "1",q_302_2 = "2",
-                       q_302_3 = "3",q_302_4 = "4",q_302_5 = "5"),
+                       q_302_3 = "3",q_302_4 = "4",q_302_5 = "5",
+                       q_302_6 = "6",q_302_7 = "7",q_302_8 = "8"),
          value = recode(value,
                         "Advance ICT applications to logistic/storage (IoT, industry 4.0 ...)" = "Advance ICT applications",
                         "Advanced pre-treatments at harvest-storage stage" = "Advanced pre-treatments",
@@ -199,15 +198,16 @@ q303 <- df %>%
   ungroup() %>%
   filter(value != "Not selected") %>%
   mutate(Rank = recode(key, q_303_1 = "1",q_303_2 = "2",
-                       q_303_3 = "3",q_303_4 = "4",q_303_5 = "5"),
+                       q_303_3 = "3",q_303_4 = "4",q_303_5 = "5",
+                       q_303_6 = "6",q_303_7 = "7"),
          value = recode(value,
-                        "Advance ICT applications to logistic/storage (IoT, industry 4.0 ...)" = "Advance ICT applications",
-                        "Advanced pre-treatments at harvest-storage stage" = "Advanced pre-treatments",
-                        "Feedstock-specific & market driven cascade valorization" = "Cascade valorization",
-                        "Life Cycle assessment of processes, biorefineries and bio-based value chains" = "LCA",
-                        "New varieties of macro- micro- organisms for cost-effective bio-products" = "New varieties of organisms",
-                        "Precision equipment for biomass harvest/collection" = "Precision equipment",
-                        "Techno-economic assessment of processes, biorefineries and bio-based value chains" = "Techno-economic assessment"))
+                        "Advanced technologies to mildly extract or separate functional components" = "Techn..functional components",
+                        "Biotechnologies to convert C02 effluents to biochemicals" = "Biotechnologies to convert C02",
+                        "Implementation of cascade biomass valorization approach in integrated biorefineries" = "Cascade biomass valorization",
+                        "Market flexible and feedstock adaptable multiproduct integrated biorefineries" = "Adaptable biorefineries",
+                        "Methods for efficient and cost-effective biomassâ€™ production" = "Methods..biomass production",
+                        "New Industrial symbiosis designs and implementation in integrated biorefineries" = "New Industr. symbiosis designs",
+                        "New processes to improve bioproducts yield from biowaste" = "Improve bioproducts yield"))
 
 q303 %>% 
   ggplot(aes(Rank,Percent)) +

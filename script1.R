@@ -13,7 +13,34 @@ library(hrbrthemes)
 # 
 # write_csv(df, "ubf_data_complete.csv")
 
-df <- read_csv("ubf_data_complete.csv")
+df <- read_csv2("Survey_consolidated_filter_23092019.csv")
+
+
+countries <- df %>% 
+  filter(!is.na(q_110)) %>%
+  group_by(q_110) %>%
+  summarise(n = n(),
+    s = sum(!is.na(.))) %>%
+  filter(n>15)
+
+df %>% 
+  filter(!is.na(q_110)) %>%
+  group_by(q_110) %>%
+  summarise(m = mean(n_complete)) %>%
+  inner_join(countries)
+  
+positions <- df %>% 
+  filter(!is.na(q_105)) %>%
+  group_by(q_105) %>%
+  summarise(n = n(),
+            s = sum(!is.na(.))) %>%
+  filter(n>10)
+
+df %>% 
+  filter(!is.na(q_105)) %>%
+  group_by(q_105) %>%
+  summarise(m = mean(n_complete)) %>%
+  inner_join(positions)
 
 #responses
 df %>%
@@ -21,7 +48,7 @@ df %>%
   gather() %>%
   mutate(Question = row_number(),
          Pct = value / max(value)*100) %>%
-  ggplot(aes(Question,Pct)) +
+  ggplot(aes(Question,Pct,colour =)) +
   geom_line() +
   labs(y = "Response rate")
 

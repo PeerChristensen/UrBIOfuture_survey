@@ -234,14 +234,13 @@ q503 <-  df %>%
   mutate(percent = n/n_tot*100) %>%
   ungroup() %>%
   mutate(key = recode(key, 
-                      q_503_1 = "Advanced pre-treatments",
-                      q_503_2 = "Precision farming",
-                      q_503_3 = "Cascade valorization",
-                      q_503_4 = "Precision equipment",
-                      q_503_5 = "Advance ICT applications",
-                      q_503_6 = "Techno-economic assessment",
-                      q_503_7 = "LCA",
-                      q_503_8 = "New varieties of organisms"),
+                      q_503_1 = "Methods..biomass production",
+                      q_503_2 = "Techn..functional components",
+                      q_503_3 = "Adaptable biorefineries",
+                      q_503_4 = "Improve bioproducts yield",
+                      q_503_5 = "Cascade biomass valorization",
+                      q_503_6 = "New Industr. symbiosis designs",
+                      q_503_7 = "Biotechnologies to convert C02"),
          value_num = case_when(
            value == "VET"         ~ 1,
            value == "BA/engineer" ~ 2,

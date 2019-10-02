@@ -384,14 +384,12 @@ q405 <-  df %>%
   mutate(percent = n/n_tot*100) %>%
   ungroup() %>%
   mutate(key = recode(key, 
-                      q_405_1 = "Communication (speaking)",
-                      q_405_2 = "Communication (writing)",
-                      q_405_3 = "Relationship building",
-                      q_405_4 = "Teamwork - conflict resolution",
-                      q_405_5 = "Adaptability",
-                      q_405_7 = "Personal branding",
-                      q_405_6 = "Collaboration",
-                      q_405_8 = "Foreign Languages"),
+                      q_405_1 = "Ecological perspective",
+                      q_405_2 = "Circ. economy / 0 waste industry",
+                      q_405_3 = "Sustainable competitiveness",
+                      q_405_4 = "Secure bio-based materials etc.",
+                      q_405_5 = "Monitoring contaminants",
+                      q_405_6 = "Recyclability concepts"),
          value_num = case_when(
            value == "VET"         ~ 1,
            value == "BA/engineer" ~ 2,

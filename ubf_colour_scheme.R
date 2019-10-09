@@ -1,7 +1,7 @@
 # colour scheme for UrBIOFuture survey report
 
 ubf_colours <- c(
-  lightgreen       = "#D3FF75",
+  lightgreen       = "#BCF06E",
   green            = "#98C455",
   darkgreen        = "#5D7531",
   black            = "#303F1B",

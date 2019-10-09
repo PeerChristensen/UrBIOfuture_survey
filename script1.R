@@ -237,23 +237,23 @@ df %>%
 
 # barchart
 # 
-# df %>% 
-#   select(starts_with("q_204")) %>%
-#   gather() %>%
-#   count(key,value) %>%
-#   filter(value != "Not selected") %>%
-#   mutate(Rank = recode(key, q_204_1 = "1",q_204_2 = "2",
-#                        q_204_3 = "3",q_204_4 = "4",q_204_5 = "5",
-#                        q_204_6 = "6",q_204_7 = "7",q_204_8 = "8")) %>%
-#   mutate(Rank_class = case_when(Rank == 1 | Rank == 2 ~ 1,
-#                                 Rank == 3 | Rank == 4 ~ 2,
-#                                 Rank == 5 | Rank == 6 ~ 3,
-#                                 Rank == 7 | Rank == 8 ~ 4),
-#          Rank = as.numeric(Rank)) %>%
-#   ggplot(aes(x=value,y=n,group=rev(Rank_class),fill=rev(Rank))) +
-#   geom_col(position="dodge") +
-#   coord_flip() +
-#   scale_fill_gradient_tableau("Green")
+df %>%
+  select(starts_with("q_204")) %>%
+  gather() %>%
+  count(key,value) %>%
+  filter(value != "Not selected") %>%
+  mutate(Rank = recode(key, q_204_1 = "1",q_204_2 = "2",
+                       q_204_3 = "3",q_204_4 = "4",q_204_5 = "5",
+                       q_204_6 = "6",q_204_7 = "7",q_204_8 = "8")) %>%
+  mutate(Rank_class = case_when(Rank == 1 | Rank == 2 ~ 1,
+                                Rank == 3 | Rank == 4 ~ 2,
+                                Rank == 5 | Rank == 6 ~ 3,
+                                Rank == 7 | Rank == 8 ~ 4),
+         Rank = as.numeric(Rank)) %>%
+  ggplot(aes(x=value,y=n,group=rev(Rank_class),fill=rev(Rank))) +
+  geom_col(position="dodge") +
+  coord_flip() +
+  scale_fill_gradient_tableau("Green")
 
 df %>% 
   select(starts_with("q_204")) %>%

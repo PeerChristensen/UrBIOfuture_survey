@@ -85,7 +85,7 @@ table_201 %>%
                        score_1_3 = "1-3",
                        score_4_5 = "4-5",
                        score_6_8 = "6-8")) %>%
-  ggplot(aes(x=reorder(Category,order),y=Percentage,group=`Rankìng Group`,fill=rev(`Rankìng Group`))) +
+  ggplot(aes(x=reorder(Category,order),y=Percentage,group=rev(`Rankìng Group`),fill=`Rankìng Group`)) +
   geom_col(width=.8) +
   geom_text(aes(label=paste0(Percentage,"%")),
                 position=position_stack(vjust=0.5), colour="white",
@@ -93,7 +93,7 @@ table_201 %>%
   scale_y_continuous(labels=percent_format(scale=1,accuracy = 1)) +
   labs(fill="Rank. Group") +
   coord_flip() +
-  scale_fill_ubf()
+  scale_fill_ubf(reverse=T)
   
   
 
